@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+char path[4];
+char arr[4];
+int num;
+
+void run(int level)
+{
+	if(level==3){
+		num++;
+		if (strcmp(path, arr) == 0) {
+			cout << num << "번째";
+			return;
+		}
+		else return;
+	}
+	for (int x = 0; x < 4; x++) {
+		path[level] = 'A' + x;
+		run(level + 1);
+		path[level] = 0;
+	}
+}
+
+int main()
+{
+	cin >> arr;
+	run(0);
+
+	return 0;
+}
