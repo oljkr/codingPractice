@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+struct Node {
+	int x;
+	Node *next;
+};
+Node *head;
+Node *last;
+void addNode(int value)
+{
+	if (head == NULL) {
+		head = new Node();
+		head->x = value;
+		last = head;
+	}
+	else {
+		last->next = new Node();
+		last = last->next;
+		last->x = value;
+	}
+}
+int main()
+{
+	addNode(3);
+	addNode(5);
+	addNode(4);
+	addNode(2);
+
+	Node *p = head;
+	while (1)
+	{
+		if (p == NULL) break;
+		cout << p->x << " ";
+		p = p->next;
+	}
+	
+	return 0;
+}
